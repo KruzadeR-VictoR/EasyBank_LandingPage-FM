@@ -30,7 +30,8 @@ function Section2() {
                   alt="feature image"
                 />
                 <Heading
-                  w="full"
+                  w="max"
+                  whiteSpace="nowrap"
                   textStyle="heading"
                   fontSize="md"
                   fontWeight="regular"
