@@ -29,10 +29,17 @@ function Section2() {
                   h="full"
                   alt="feature image"
                 />
-                <Heading textStyle="heading" fontSize="md" fontWeight="regular">
+                <Heading
+                  w="full"
+                  textStyle="heading"
+                  fontSize="md"
+                  fontWeight="regular"
+                >
                   {feat.heading}
                 </Heading>
-                <Text textStyle="text" maxW="95%">{feat.caption}</Text>
+                <Text textStyle="text" maxW="95%">
+                  {feat.caption}
+                </Text>
               </VStack>
             ))}
         </Flex>
