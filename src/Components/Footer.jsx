@@ -1,11 +1,55 @@
 import { Box, Flex, HStack, Image, Link, Text, VStack } from "@chakra-ui/react";
+import { motion } from "framer-motion";
 import React from "react";
 // import image from "../assets/";
 
 function Footer() {
+  const animation = {
+    initial: { opacity: 0, y: 100 },
+    animate: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        when: "beforeChildren",
+        staggerChildren: 0.2,
+        // type: "tween",
+        // duration: 1,
+        // delay: 1,
+      },
+    },
+  };
+
+  const children = {
+    initial: { opacity: 0, y: 100 },
+    animate: {
+      opacity: 1,
+      y: 0,
+      transition: { type: "spring", duration: 0.5 },
+    },
+  };
+
   return (
-    <Flex direction="column" align="center" bg="DarkBlue" minH="20rem" py="10">
-      <Flex direction="column" gap="5" align="center">
+    <Flex
+      as={motion.div}
+      variants={animation}
+      initial="initial"
+      whileInView="animate"
+      direction={["column", "row"]}
+      align={["center", "start"]}
+      justify="space-around"
+      bg="DarkBlue"
+      minH={["20rem", "auto"]}
+      // maxW={["auto", "80%"]}
+      py={["10", "16"]}
+      overflow="hidden"
+    >
+      <Flex
+        as={motion.div}
+        variants={children}
+        direction="column"
+        gap={[5, 12]}
+        align="center"
+      >
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="139"
@@ -65,7 +109,12 @@ function Footer() {
           </svg>
         </HStack>
       </Flex>
-      <VStack mt="5">
+      <VStack
+        as={motion.div}
+        variants={children}
+        mt={["5", 0]}
+        align={["center", "start"]}
+      >
         <Link fontSize="sm" color="LightGrayishBlue">
           About Us
         </Link>
@@ -76,7 +125,12 @@ function Footer() {
           Blog
         </Link>
       </VStack>
-      <VStack mt="1.5">
+      <VStack
+        as={motion.div}
+        variants={children}
+        mt={["1.5", 0]}
+        align={["center", "start"]}
+      >
         <Link fontSize="sm" color="LightGrayishBlue">
           Careers
         </Link>
@@ -87,7 +141,7 @@ function Footer() {
           Privacy Policy
         </Link>
       </VStack>
-      <VStack spacing={5} mt="8">
+      <VStack as={motion.div} variants={children} spacing={5} mt={["8", 0]}>
         <Box
           as="button"
           bgGradient="linear(to-r,LimeGreen,BrightCyan)"

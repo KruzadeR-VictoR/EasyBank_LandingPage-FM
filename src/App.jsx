@@ -4,6 +4,13 @@ import Home from "./Home";
 
 function App() {
   const theme = extendTheme({
+    breakpoints: {
+      sm: "30em",
+      md: "53em",
+      lg: "62em",
+      xl: "80em",
+      "2xl": "96em",
+    },
     colors: {
       heading: "red",
       DarkBlue: "hsl(233, 26%, 24%)",
@@ -28,6 +35,11 @@ function App() {
         color: "GrayishBlue",
         fontSize: "sm",
         textAlign: "center",
+      },
+    },
+    layerStyles: {
+      link: {
+        color: "GrayishBlue",
       },
     },
   });
