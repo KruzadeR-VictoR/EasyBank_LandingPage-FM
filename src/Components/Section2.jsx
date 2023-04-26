@@ -5,10 +5,10 @@ import { motion } from "framer-motion";
 
 function Section2() {
   const animation = {
-    initial: { opacity: 0, y: -100 },
+    initial: { opacity: 0, x: -100 },
     animate: {
       opacity: 1,
-      y: 0,
+      x: 0,
       transition: {
         when: "beforeChildren",
         staggerChildren: 0.1,
@@ -61,6 +61,7 @@ function Section2() {
             variants={animation}
             initial="initial"
             whileInView="animate"
+            viewport={{ once: false, amount: 0 }}
           >
             {Features &&
               Features.map((feat) => (

@@ -40,7 +40,28 @@ function Header() {
     initial: { y: -100 },
     animate: {
       y: 0,
-      transition: { type: "spring", duration: 0.5,delay:.5},
+      transition: { type: "spring", duration: 0.5, delay: 0.5 },
+    },
+  };
+
+  const modalAnimation = {
+    initial: { scale: 0 },
+    animate: {
+      scale: 1,
+      transition: {
+        type: "tween",
+        when: "beforeChildren",
+        staggerChildren: ".1",
+      },
+    },
+  };
+  1;
+  const children = {
+    initial: { opacity: 0, y: 100 },
+    animate: {
+      opacity: 1,
+      y: 0,
+      transition: { type: "spring" },
     },
   };
 
@@ -74,7 +95,12 @@ function Header() {
           </Box>
           {/* Mobile nav menu  */}
           <Hide above="md">
-            <Box as="button" ref={menuRef} onClick={onOpen}>
+            <Box
+              as={motion.button}
+              ref={menuRef}
+              onClick={onOpen}
+              whileTap={{ scale: 0.7 }}
+            >
               {isOpen ? (
                 <Image src={closeBtn} alt="Burger Menu button" />
               ) : (
@@ -89,23 +115,57 @@ function Header() {
             finalFocusRef={menuRef}
           >
             <ModalOverlay />
-            <ModalContent maxW="90%" mt="5.5rem" rounded="md" overflow="hidden">
+            <ModalContent
+              as={motion.section}
+              maxW="90%"
+              mt="5.5rem"
+              rounded="md"
+              overflow="hidden"
+              variants={modalAnimation}
+              initial="initial"
+              animate="animate"
+            >
               {/* <ModalCloseButton /> */}
               <ModalBody bg="White">
                 <Flex direction="column" align="center" gap="4" py="5">
-                  <Link fontSize="lg" color="DarkBlue">
+                  <Link
+                    as={motion.a}
+                    fontSize="lg"
+                    color="DarkBlue"
+                    variants={children}
+                  >
                     Home
                   </Link>
-                  <Link fontSize="lg" color="DarkBlue">
+                  <Link
+                    as={motion.a}
+                    fontSize="lg"
+                    color="DarkBlue"
+                    variants={children}
+                  >
                     About
                   </Link>
-                  <Link fontSize="lg" color="DarkBlue">
+                  <Link
+                    as={motion.a}
+                    fontSize="lg"
+                    color="DarkBlue"
+                    variants={children}
+                  >
                     Contact
                   </Link>
-                  <Link fontSize="lg" color="DarkBlue">
+                  <Link
+                    as={motion.a}
+                    fontSize="lg"
+                    color="DarkBlue"
+                    variants={children}
+                  >
                     Blog
                   </Link>
-                  <Link fontSize="lg" color="DarkBlue">
+                  <Link
+                    as={motion.a}
+                    fontSize="lg"
+                    color="DarkBlue"
+                    variants={children}
+                  >
                     Careers
                   </Link>
                 </Flex>
@@ -116,6 +176,7 @@ function Header() {
           <Hide below="md">
             <Flex direction="row" align="center" gap={["4", 5, 8]}>
               <Link
+                as={motion.a}
                 fontSize={["lg", "md"]}
                 color={["DarkBlue", "GrayishBlue"]}
                 position="relative"
@@ -125,11 +186,15 @@ function Header() {
                     width: "100%",
                   },
                   color: "DarkBlue",
+                }}
+                whileTap={{
+                  scale: 0.8,
                 }}
               >
                 Home
               </Link>
               <Link
+                as={motion.a}
                 fontSize={["lg", "md"]}
                 color={["DarkBlue", "GrayishBlue"]}
                 position="relative"
@@ -139,11 +204,15 @@ function Header() {
                     width: "100%",
                   },
                   color: "DarkBlue",
+                }}
+                whileTap={{
+                  scale: 0.8,
                 }}
               >
                 About
               </Link>
               <Link
+                as={motion.a}
                 fontSize={["lg", "md"]}
                 color={["DarkBlue", "GrayishBlue"]}
                 position="relative"
@@ -153,11 +222,15 @@ function Header() {
                     width: "100%",
                   },
                   color: "DarkBlue",
+                }}
+                whileTap={{
+                  scale: 0.8,
                 }}
               >
                 Contact
               </Link>
               <Link
+                as={motion.a}
                 fontSize={["lg", "md"]}
                 color={["DarkBlue", "GrayishBlue"]}
                 position="relative"
@@ -168,10 +241,14 @@ function Header() {
                   },
                   color: "DarkBlue",
                 }}
+                whileTap={{
+                  scale: 0.8,
+                }}
               >
                 Blog
               </Link>
               <Link
+                as={motion.a}
                 fontSize={["lg", "md"]}
                 color={["DarkBlue", "GrayishBlue"]}
                 position="relative"
@@ -181,13 +258,16 @@ function Header() {
                     width: "100%",
                   },
                   color: "DarkBlue",
+                }}
+                whileTap={{
+                  scale: 0.8,
                 }}
               >
                 Careers
               </Link>
             </Flex>
             <Box
-              as="button"
+              as={motion.button}
               bgGradient="linear(to-r,LimeGreen,BrightCyan)"
               color="White"
               rounded="full"
@@ -195,6 +275,7 @@ function Header() {
               px="2rem"
               fontSize="sm"
               _hover={{ opacity: ".8" }}
+              whileTap={{ scale: 0.9 }}
               // overflow="hidden"
             >
               Request Invite

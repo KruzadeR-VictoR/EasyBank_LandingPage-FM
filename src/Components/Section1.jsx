@@ -23,7 +23,7 @@ function Section1() {
       y: 0,
       transition: {
         when: "beforeChildren",
-        staggerChildren: 0.2,        
+        staggerChildren: 0.2,
         // duration: 1,
         // delay: 1,
       },
@@ -34,7 +34,7 @@ function Section1() {
     animate: {
       opacity: 1,
       y: 0,
-      transition: {type:'spring', duration: 0.5 },
+      transition: { type: "spring", duration: 0.5 },
     },
   };
   return (
@@ -42,8 +42,16 @@ function Section1() {
       <Header />
       <Flex
         direction={["column", "column", "row-reverse"]}
-        minH="100vh"
-        bg="White"
+        maxH="100vh"
+        // bg="White"
+        // bgImage={[
+        //   `none`,
+        //   `url(${bgIntroMobile})`,
+        //   `url(${bgIntroDesktop})`,
+        // ]}
+        // bgRepeat="no-repeat"
+        // bgSize="100%"
+        // bgPosition={["right center", "top right"]}
       >
         <Box
           bgImage={[
@@ -53,7 +61,7 @@ function Section1() {
           ]}
           bgRepeat="no-repeat"
           bgSize="cover"
-          bgPosition={["top center", "center center"]}
+          bgPosition={["top center", "-4rem top"]}
           // flexBasis="50%"
         >
           <Image
@@ -84,6 +92,7 @@ function Section1() {
             initial="initial"
             // animate="animate"
             whileInView="animate"
+            viewport={{ once: false, amount: 0.8 }}
           >
             <Heading
               as={motion.h2}
@@ -108,8 +117,11 @@ function Section1() {
               p="2"
               px="2rem"
               fontSize="md"
+              // _hover={{ opacity: ".8" }}
               // overflow="hidden"
               variants={children}
+              whileHover={{ opacity: 0.7 }}
+              whileTap={{ scale: 0.9 }}
             >
               Request Invite
             </Box>

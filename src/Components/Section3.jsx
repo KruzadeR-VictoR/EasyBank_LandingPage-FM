@@ -12,6 +12,7 @@ import { Articles } from "../Datas/Articles";
 import { motion } from "framer-motion";
 
 function Section3() {
+  // Animations
   const animation = {
     initial: { opacity: 0, y: -100 },
     animate: {
@@ -53,6 +54,7 @@ function Section3() {
             variants={animation}
             initial="initial"
             whileInView="animate"
+            viewport={{ once: false, amount: 0 }}
             direction={["column", "row"]}
             justify="center"
             align={["center", "stretch"]}
@@ -64,6 +66,7 @@ function Section3() {
                 <Card
                   as={motion.div}
                   variants={children}
+                  key={article.id}
                   rounded="md"
                   overflow="hidden"
                   boxShadow="none"
@@ -72,7 +75,7 @@ function Section3() {
                   <Image
                     src={article.articleImg}
                     w="full"
-                    h="full"
+                    h="10rem"
                     alt="article image"
                   />
                   <CardBody bg="White">
@@ -80,11 +83,15 @@ function Section3() {
                       By {article.author}
                     </Text>
                     <Heading
+                      as={motion.h2}
                       textStyle="heading"
                       fontSize="lg"
                       fontWeight="regular"
                       color="DarkBlue"
                       my="1"
+                      cursor="pointer"
+                      whileHover={{ color: "LimeGreen" }}
+                      whileTap={{ scale: 0.95 }}
                     >
                       {article.heading}
                     </Heading>
