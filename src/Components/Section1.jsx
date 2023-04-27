@@ -87,7 +87,7 @@ function Section1() {
             textAlign={["center", "center", "left"]}
             align={["center", "center", "start"]}
             justify="center"
-            maxW={["auto", "35rem", "25rem"]}
+            maxW={["auto", "35rem", "25rem", { "2xl": "35rem" }]}
             variants={animation}
             initial="initial"
             // animate="animate"
@@ -96,7 +96,7 @@ function Section1() {
           >
             <Heading
               as={motion.h1}
-              fontSize={["4xl", "5xl"]}
+              fontSize={{ base: "4xl", lg: "5xl", "2xl": "6xl" }}
               fontWeight="regular"
               color="DarkBlue"
               px={["2", 0]}
@@ -104,7 +104,12 @@ function Section1() {
             >
               Next generation digital banking
             </Heading>
-            <Text as={motion.p} color="GrayishBlue" variants={children}>
+            <Text
+              as={motion.p}
+              color="GrayishBlue"
+              fontSize={{ base: "auto", "2xl": "lg" }}
+              variants={children}
+            >
               Take your financial life online. Your Easybank account will be a
               one-stop-shop for spending, saving, budgeting, investing, and much
               more.
@@ -114,9 +119,9 @@ function Section1() {
               bgGradient="linear(to-r,LimeGreen,BrightCyan)"
               color="White"
               rounded="full"
-              p="2"
-              px="2rem"
-              fontSize="md"
+              p={{ base: "2", "2xl": "3" }}
+              px={{ base: "2rem", "2xl": "3rem" }}
+              fontSize={{ base: "md", "2xl": "lg" }}
               // _hover={{ opacity: ".8" }}
               // overflow="hidden"
               variants={children}
