@@ -42,7 +42,7 @@ function Section1() {
       <Header />
       <Flex
         direction={["column", "column", "row-reverse"]}
-        maxH="100vh"
+        minH={["100vh", "100vh", "auto"]}
         // bg="White"
         // bgImage={[
         //   `none`,
@@ -61,7 +61,7 @@ function Section1() {
           ]}
           bgRepeat="no-repeat"
           bgSize="cover"
-          bgPosition={["top center", "-4rem top"]}
+          bgPosition={["top center", "top center", "-4rem top"]}
           // flexBasis="50%"
         >
           <Image
@@ -95,7 +95,7 @@ function Section1() {
             viewport={{ once: false, amount: 0.8 }}
           >
             <Heading
-              as={motion.h2}
+              as={motion.h1}
               fontSize={["4xl", "5xl"]}
               fontWeight="regular"
               color="DarkBlue"

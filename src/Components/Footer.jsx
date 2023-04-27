@@ -59,8 +59,7 @@ function Footer() {
           xmlns="http://www.w3.org/2000/svg"
           width="139"
           height="20"
-          transform="scale(.8)"
-          bg="red"
+          style={{ transform: "scale(.8)" }}
         >
           <defs>
             <linearGradient id="a" x1="72.195%" x2="17.503%" y1="0%" y2="100%">

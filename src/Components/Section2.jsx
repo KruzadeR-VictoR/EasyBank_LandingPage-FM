@@ -76,7 +76,7 @@ function Section2() {
                   <Image
                     src={feat.featureImg}
                     width="3.5rem"
-                    h="full"
+                    maxH="3.5rem"
                     alt="feature image"
                   />
                   <Heading
